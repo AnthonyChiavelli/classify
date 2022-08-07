@@ -7,17 +7,17 @@ const SERVER_PORT = 2000
 const app: Express = express()
 
 app.listen(SERVER_PORT, async () => {
-    console.info(`Server running on port ${SERVER_PORT}`)
-    defineBundleEndpoints()
+  // eslint-disable-next-line no-console
+  console.info(`Server running on port ${SERVER_PORT}`)
+  defineBundleEndpoints()
 })
 
 const defineBundleEndpoints = () => {
+  app.get('*/bundle.js', function (req: Request, response: Response) {
+    response.sendFile(path.resolve('..', 'dist', 'bundle.js'))
+  })
 
-    app.get('*/bundle.js', function (req: Request, response: Response) {
-        response.sendFile(path.resolve('..', 'dist', 'bundle.js'))
-    })
-
-    app.get('*', function (req: Request, response: Response) {
-        response.sendFile(path.resolve('..', 'dist', 'index.html'))
-    })
+  app.get('*', function (req: Request, response: Response) {
+    response.sendFile(path.resolve('..', 'dist', 'index.html'))
+  })
 }
