@@ -5,6 +5,9 @@ import { Tab } from 'semantic-ui-react'
 import Schedule from 'pages/schedule'
 import Analytics from 'pages/analytics'
 import Settings from 'pages/analytics'
+import NavMenu from 'components/nav-menu'
+import { store } from 'redux/store'
+import { Provider } from 'react-redux'
 
 const tabs = [
   { menuItem: 'Schedule', render: () => <Schedule /> },
@@ -14,14 +17,17 @@ const tabs = [
 
 export default () => {
   return (
-    <Container fluid style={{ margin: '2em' }}>
+    <Provider store={store}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Tab panes={tabs} />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
+        <Container fluid>
+          <NavMenu />
+          <Routes>
+            <Route path="/" element={<Tab panes={tabs} />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </Container>
       </BrowserRouter>
-    </Container>
+    </Provider>
   )
 }
