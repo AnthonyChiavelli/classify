@@ -4,9 +4,12 @@ import { Menu } from 'semantic-ui-react'
 
 export default () => {
   return (
-    <Menu borderless fixed="top">
+    <Menu borderless>
       <Menu.Item>
         <Link to="/">Calendar</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/students">Student Roster</Link>
       </Menu.Item>
       <Menu.Item>
         <Link to="/analytics">Analytics</Link>

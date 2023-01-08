@@ -9,7 +9,7 @@ import {
   updateStudentAbsense,
 } from 'redux/slices/event-details'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
-import 'components/student-list/student-list-item.styl'
+import 'components/student-attendance-list/student-attendance-list-item.styl'
 
 interface IStudentListItemProps {
   student: IStudent
@@ -17,19 +17,19 @@ interface IStudentListItemProps {
 
 export default (props: IStudentListItemProps) => {
   const dispatch = useAppDispatch()
-  const attendingStudent = useAppSelector((state) => selectAttendingStudentById(state, props.student.id))
+  const attendingStudent = useAppSelector((state) => selectAttendingStudentById(state, props.student._id))
   const handleRemoveStudent = React.useCallback(() => {
-    dispatch(removeStudent(props.student.id))
+    dispatch(removeStudent(props.student._id))
   }, [props.student])
   const handleMarkAbsentStudent = React.useCallback(() => {
-    dispatch(updateStudentAbsense({ studentId: props.student.id, absent: !attendingStudent.absent }))
+    dispatch(updateStudentAbsense({ studentId: props.student._id, absent: !attendingStudent.absent }))
   }, [props.student, attendingStudent])
 
   const handleChangeCharge = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
       dispatch(
         updateStudentCharge({
-          studentId: props.student.id,
+          studentId: props.student._id,
           charge: Number(e.target.value),
         })
       ),
@@ -37,7 +37,7 @@ export default (props: IStudentListItemProps) => {
   )
 
   return (
-    <div className={classNames('student-list-item', { absent: attendingStudent.absent })}>
+    <div className={classNames('student-attendance-list-item', { absent: attendingStudent.absent })}>
       <div className="name">
         {props.student.firstName} {props.student.lastName}
       </div>

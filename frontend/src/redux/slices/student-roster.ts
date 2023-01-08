@@ -7,26 +7,7 @@ interface StudentRosterState {
 }
 
 const initialState: StudentRosterState = {
-  students: [
-    {
-      firstName: 'Bronco',
-      lastName: 'Basilicous',
-      familyId: 'Basilicous',
-      school: 'Banana Institute',
-      areasOfConcern: [],
-      id: '12345',
-      gradeLevel: 8,
-    },
-    {
-      firstName: 'Grumpus',
-      lastName: 'Humpner',
-      familyId: 'Jarles',
-      school: 'Mango School',
-      areasOfConcern: [],
-      id: '12346',
-      gradeLevel: 8,
-    },
-  ],
+  students: [],
 }
 
 export const studentRosterSlice = createSlice({
@@ -36,9 +17,15 @@ export const studentRosterSlice = createSlice({
     setStudents: (state, action: PayloadAction<StudentRosterState['students']>) => {
       state.students = action.payload
     },
+    addNewlyCreatedStudents: (state, action: PayloadAction<IStudent[]>) => {
+      state.students = [...action.payload, ...state.students]
+    },
+    removeDeletedStudent: (state, action: PayloadAction<string>) => {
+      state.students = state.students.filter((s: IStudent) => s._id !== action.payload)
+    },
   },
 })
 
-export const { setStudents } = studentRosterSlice.actions
+export const { setStudents, addNewlyCreatedStudents, removeDeletedStudent } = studentRosterSlice.actions
 export const studentRosterReducer = studentRosterSlice.reducer
 export const selectStudentRoster = (state: RootState) => state.studentRoster.students

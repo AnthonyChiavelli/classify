@@ -83,7 +83,7 @@ export const selectDiscoveryChannel = (state: RootState) => state.eventDetails.d
 export const selectConsultationChannel = (state: RootState) => state.eventDetails.consultationChannel
 export const selectSelectedStudents = (state: RootState) =>
   Object.keys(state.eventDetails.students)
-    .map((studentId) => state.studentRoster.students.find((stud) => stud.id === studentId))
+    .map((studentId) => state.studentRoster.students.find((stud) => stud._id === studentId))
     .filter((s) => s)
 export const selectAttendingStudentById = (state: RootState, studentId: string) =>
   state.eventDetails.students[studentId]

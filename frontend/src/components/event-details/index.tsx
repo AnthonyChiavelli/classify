@@ -14,7 +14,7 @@ import {
   setConsultationChannel,
   setDiscoveryChannel,
 } from 'redux/slices/event-details'
-import StudentSearch from 'components/student-list'
+import StudentSearch from 'components/student-attendance-list'
 
 export default () => {
   // TODO use react final form?

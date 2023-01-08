@@ -4,6 +4,12 @@ export default () => {
   return (
     <div>
       <div>Analytics</div>
+      <div>Analytics</div>
+      <div>Analytics</div>
+      <div>Analytics</div>
+      <div>Analytics</div>
+      <div>Analytics</div>
+      <div>Analytics</div>
     </div>
   )
 }
