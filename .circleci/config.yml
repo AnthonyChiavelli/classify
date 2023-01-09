@@ -17,14 +17,6 @@ jobs:
       - run:
           name: Lint
           command: cd ~/project/server && yarn run clean
-  deploy: 
-    executor: heroku/default
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - heroku/deploy-via-git:
-          force: true 
-
   build-and-lint-frontend:
     docker:
       - image: cimg/node:16.10
@@ -37,16 +29,24 @@ jobs:
       - run:
           name: Lint
           command: cd ~/project/frontend && yarn run clean
+  deploy: 
+    executor: heroku/default
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - heroku/deploy-via-git:
+          force: true 
+
 
 workflows:
   clean_deploy:
     jobs:
       - build-and-lint-server
       - build-and-lint-frontend
-    deploy:
-      requires:
-        - build-and-lint-server
-        - build-and-lint-frontend
-      filters:
-        branches:
-          only: main
+      - deploy:
+          requires:
+            - build-and-lint-server
+            - build-and-lint-frontend
+          filters:
+            branches:
+              only: main
