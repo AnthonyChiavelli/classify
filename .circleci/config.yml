@@ -13,6 +13,7 @@ jobs:
           pkg-manager: yarn
           app-dir: ~/project/server
           with-cache: false
+      - run: cd ~/project/server
       - run:
           name: Lint
           command: yarn run clean
