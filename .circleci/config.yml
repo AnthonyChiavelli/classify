@@ -43,10 +43,4 @@ workflows:
     jobs:
       - build-and-lint-server
       - build-and-lint-frontend
-      - deploy:
-          requires:
-            - build-and-lint-server
-            - build-and-lint-frontend
-          filters:
-            branches:
-              only: main
+      - deploy
