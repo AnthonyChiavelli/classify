@@ -4,15 +4,11 @@ orbs:
   node: circleci/node@4.7
 
 jobs:
-  build-and-lint-server:
+  lint-server:
     docker:
       - image: cimg/node:16.10
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-          app-dir: ~/project/server
-          with-cache: false
       - run:
           name: Lint
           command: cd ~/project/server && yarn run clean
@@ -20,4 +16,4 @@ jobs:
 workflows:
   clean:
     jobs:
-      - build-and-lint-server
+      - lint-server
