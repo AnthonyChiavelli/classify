@@ -9,9 +9,9 @@ jobs:
       - image: cimg/node:16.10
     steps:
       - checkout
-      - run: cd frontend
       - node/install-packages:
           pkg-manager: yarn
+          app-dir: ~/project/server
       - run:
           name: Lint
           command: yarn run clean
