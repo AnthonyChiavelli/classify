@@ -9,8 +9,7 @@ jobs:
       - image: cimg/node:16.10
     steps:
       - checkout
-      - run: 
-          command: cd server 
+    working_directory: ./frontend
       - node/install-packages:
           pkg-manager: yarn
       - run:
