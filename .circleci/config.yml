@@ -12,6 +12,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           app-dir: ~/project/server
+          cache-path: ~/project/server
       - run:
           name: Lint
           command: yarn run clean
