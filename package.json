@@ -6,7 +6,7 @@
   "author": "Anthony Chiavelli",
   "license": "MIT",
   "scripts": {
-    "start": "cd frontend && npm run build-once && cd server && npm run serve"
+    "start": "cd frontend && npm install && npm run build-once && cd server && npm install && npm run serve"
   },
   "dependencies": {
     "webpack": "^5.75.0"
