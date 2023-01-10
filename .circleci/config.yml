@@ -30,6 +30,9 @@ jobs:
           name: Lint Frontend
           command: cd ~/project/frontend && yarn run clean
   deploy: 
+    requires:
+      - build-and-lint-frontend
+      - build-and-lint-server
     executor: heroku/default
     steps:
       - attach_workspace:
