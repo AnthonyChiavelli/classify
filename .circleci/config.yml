@@ -15,7 +15,7 @@ jobs:
           app-dir: ~/project/server
           with-cache: false
       - run:
-          name: Lint
+          name: Lint Backend
           command: cd ~/project/server && yarn run clean
   build-and-lint-frontend:
     docker:
@@ -27,7 +27,7 @@ jobs:
           app-dir: ~/project/frontend
           with-cache: false
       - run:
-          name: Lint
+          name: Lint Frontend
           command: cd ~/project/frontend && yarn run clean
   deploy: 
     executor: heroku/default
