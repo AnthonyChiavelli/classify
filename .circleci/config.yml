@@ -32,8 +32,7 @@ jobs:
   deploy: 
     executor: heroku/default
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
       - heroku/install
       - heroku/deploy-via-git:
           force: true 
