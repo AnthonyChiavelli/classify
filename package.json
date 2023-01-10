@@ -1,0 +1,11 @@
+{
+  "name": "classify",
+  "version": "1.0.0",
+  "description": "Class scheduling, made simple",
+  "main": "index.ts",
+  "author": "Anthony Chiavelli",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd frontend && yarn build & && cd server && yarn serve",
+  }
+}
