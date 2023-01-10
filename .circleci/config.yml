@@ -32,8 +32,6 @@ jobs:
   deploy: 
     executor: heroku/default
     steps:
-      - checkout
-      - heroku/install
       - heroku/deploy-via-git:
           force: true 
 
