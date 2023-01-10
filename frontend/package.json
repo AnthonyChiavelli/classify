@@ -6,8 +6,8 @@
   "author": "Anthony Chiavelli",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.frontend.js",
-    "build-once": "webpack --config webpack.frontend.js --watch=false",
+    "build": "webpack --config webpack.frontend.js --watch",
+    "build-once": "webpack --config webpack.frontend.js",
     "lint": "eslint . --ext .ts,.tsx",
     "prettier": "prettier . --write --ignore-unknown",
     "clean": "npm-run-all prettier lint"

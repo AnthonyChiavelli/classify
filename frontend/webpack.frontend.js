@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webapp = {
   mode: 'development',
   entry: './src/main.tsx',
-  watch: true,
   watchOptions: {
     ignored: /node_modules/,
   },
