@@ -6,7 +6,7 @@ import { initializeDB } from 'database'
 import bodyParser from 'body-parser'
 import { Service } from 'service'
 
-const SERVER_PORT = process.env.SERVER_PORT
+const SERVER_PORT = process.env.PORT || process.env.SERVER_PORT
 const API_PREFIX = '/api'
 
 const app: Express = express()
