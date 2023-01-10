@@ -6,6 +6,6 @@
   "author": "Anthony Chiavelli",
   "license": "MIT",
   "scripts": {
-    "start": "cd frontend && yarn build & && cd server && yarn serve"
+    "start": "cd frontend && yarn build-one && cd server && yarn serve"
   }
 }
